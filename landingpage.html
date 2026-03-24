@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEVEL 1 · creative landing page</title>
+    <!-- Font Awesome 6 (free) for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #fafcff;
+            color: #1e293b;
+            line-height: 1.5;
+        }
+
+        /* container */
+        .landing-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ----- HEADER (navigation + intro) ----- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f2b4b;
+        }
+
+        .logo-area i {
+            color: #3b6bb0;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #25445e;
+            font-size: 1.1rem;
+            transition: 0.1s;
+            padding: 0.4rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        nav a:hover {
+            background: #e0e9ff;
+            color: #112b44;
+        }
+
+        .btn-demo {
+            background: #1f3a6b;
+            color: white;
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #ffffff80;
+        }
+
+        .btn-demo i {
+            font-size: 1rem;
+        }
+
+        /* ----- HERO / intro section (columns) ----- */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            padding: 3.5rem 0;
+        }
+
+        .hero-text {
+            flex: 1 1 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0a1d37;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #4675c2;
+            border-bottom: 5px solid #b7caf5;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 2rem;
+            color: #334e70;
+            max-width: 550px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1d4a7c;
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1d4a7c;
+            color: #1d4a7c;
+            padding: 0.85rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-image {
+            flex: 1 1 300px;
+            background: linear-gradient(145deg, #dbe3fb, #c1d0f0);
+            border-radius: 3rem;
+            padding: 2rem;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 25px 35px -15px #a2b6d9;
+            border: 1px solid white;
+        }
+
+        .hero-image .placeholder {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #142f57;
+            background: rgba(255,255,255,0.3);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ----- columns / features section (dividing sections) ----- */
+        .features {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 650;
+            color: #0b1d38;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .section-title i {
+            color: #3a60a5;
+            margin-right: 10px;
+        }
+
+        .columns-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .col-card {
+            background: #ffffff;
+            border-radius: 2.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 30px -12px #b7c4dd;
+            border: 1px solid #eef4ff;
+            transition: 0.1s;
+        }
+
+        .col-card i {
+            font-size: 2.4rem;
+            color: #2a5190;
+            background: #e7edff;
+            padding: 0.8rem;
+            border-radius: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .col-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: #112843;
+        }
+
+        .col-card p {
+            color: #2c4769;
+        }
+
+        /* ----- creative divider / extra section (boxes, alignment) ----- */
+        .design-principles {
+            background: #eef3fd;
+            border-radius: 4rem;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .principles-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .principle-box {
+            flex: 1 1 180px;
+            background: white;
+            border-radius: 2rem;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            box-shadow: 0 8px 18px -8px #b0bad2;
+            border: 1px solid #dee9ff;
+        }
+
+        .principle-box .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #24416b;
+            background: #deeaff;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 60px;
+            margin-bottom: 0.5rem;
+        }
+
+        .principle-box p {
+            font-weight: 500;
+            color: #152e4e;
+        }
+
+        .principle-wide {
+            flex: 2 1 300px;
+            background: #d4e2fc;
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            border: 1px solid white;
+        }
+
+        .principle-wide h4 {
+            font-size: 1.6rem;
+            color: #021c3a;
+        }
+        /* ----- footer (with columns and links) ----- */
+        footer {
+            margin-top: 4rem;
+            background: #10223b;
+            color: #dbe4f0;
+            border-radius: 3rem 3rem 0 0;
+            padding: 2.5rem 2rem 1.8rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #cbd9f0;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px dashed #5f739b;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: #b6c6e3;
+        }
+
+        /* demo click area */
+        .demo-block {
+            margin: 2rem 0 1rem;
+            text-align: right;
+        }
+
+        .demo-link {
+            background: #1f3460;
+            color: white;
+            padding: 0.8rem 2.8rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #b2c6ff;
+        }
+
+        /* responsiveness */
+        @media (max-width: 700px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav ul { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <!-- Header section: logo + navigation (columns) -->
+        <header>
+            <div class="logo-area">
+                <i class="fas fa-compass"></i> 
+                <span>Learn•With•Style</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">columns</a></li>
+                    <li><a href="#">sections</a></li>
+                    <li><a href="#">creative</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-demo"><i class="fas fa-eye"></i> demo</a>
+        </header>
+
+        <!-- Hero section: divided into two columns (text + image placeholder) -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>craft your <span>landing page</span> with confidence</h1>
+                <p>Master columns, dividers, alignments, and color palettes. A perfect beginner project to unleash creativity while learning HTML & CSS.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary"><i class="fas fa-arrow-right"></i> start building</a>
+                    <a href="#" class="btn-outline"><i class="far fa-compass"></i> explore</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder">
+                    <i class="fas fa-paint-brush"></i>  creative zone
+                </div>
+            </div>
+        </div>
+
+        <!-- Features / columns section (3-column layout) -->
+        <section class="features">
+            <h2 class="section-title"><i class="fas fa-layout"></i> divide & arrange</h2>
+            <div class="columns-3">
+                <div class="col-card">
+                    <i class="fas fa-align-left"></i>
+                    <h3>columns</h3>
+                    <p>Create flexible multi‑column layouts. Practice grid and flexbox to align content side by side.</p>
+                </div>
+                <div class="col-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>sections</h3>
+                    <p>Divide your page into meaningful blocks – header, hero, features, footer. Keep everything organized.</p>
+                </div>
+                <div class="col-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>color & spacing</h3>
+                    <p>Experiment with palettes, padding, margins, and boxes. Avoid overlapping with careful CSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- extra design area: boxes, alignments, visual hierarchy (as mentioned) -->
+        <div class="design-principles">
+            <div class="principles-flex">
+                <div class="principle-box">
+                    <div class="number">01</div>
+                    <p>alignment</p>
+                </div>
+                <div class="principle-box">
+                    <div class="number">02</div>
+                    <p>padding</p>
+                </div>
+                <div class="principle-box">
+                    <div class="number">03</div>
+                    <p>color palette</p>
+                </div>
+                <div class="principle-wide">
+                    <h4><i class="fas fa-pencil-ruler"></i> unleash creativity</h4>
+                    <p style="color:#102e50;">Pay attention to boxes, borders, and visual flow. The most important aspect is making it impressive and user‑friendly.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Another columns sample: cards (boxes) to show items -->
+        <section style="margin: 2rem 0;">
+            <h2 class="section-title"><i class="fas fa-th"></i> boxes & cards</h2>
+            <div class="columns-3">
+                <div class="col-card" style="background:#fcfdff">
+                    <i class="fas fa-cube"></i>
+                    <h4>box one</h4>
+                    <p>Consistent padding and rounded corners. Keep margins even.</p>
+                </div>
+                <div class="col-card" style="background:#fcfdff">
+                    <i class="fas fa-cubes"></i>
+                    <h4>box two</h4>
+                    <p>No overlapping – clear separation with gap and background.</p>
+                </div>
+                <div class="col-card" style="background:#fcfdff">
+                    <i class="fas fa-shapes"></i>
+                    <h4>box three</h4>
+                    <p>Creative use of shadows and borders to lift elements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section (with columns and copyright) -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>LEVEL 1</h4>
+                    <ul>
+                        <li><a href="#">about</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>resources</h4>
+                    <ul>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">creativity</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>social</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> X</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> github</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>demo</h4>
+                    <ul>
+                        <li><a href="#">click here</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <span><i class="far fa-copyright"></i> 2026 level 1 · built with html & css</span>
+                <span>padding · alignment · no overlap</span>
+            </div>
+        </footer>
+
+        <!-- FOR DEMO CLICK HERE (exactly as given) -->
+        <div class="demo-block">
+            <a href="#" class="demo-link"><span>✨ FOR DEMO CLICK HERE </span><i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- tiny note: inspired by beginner project brief -->
+        <div style="text-align: center; margin: 1rem 0 2rem; color: #4f658d;">
+            <i class="fas fa-lightbulb"></i> A landing page project — learn columns, sections, headers, footers
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishesh Parmar · clean minimal</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f0f3fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        /* completely different container: dark-light split */
+        .different-portfolio {
+            max-width: 1300px;
+            width: 100%;
+            background: #fbfdff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -20px #1a2942;
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            overflow: hidden;
+            border: 1px solid #ffffff;
+        }
+
+        /* LEFT PANEL — new vertical layout */
+        .panel-left {
+            background: #13203b;
+            color: #e6ecfd;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .name-large-left {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .name-large-left i {
+            color: #fcd48c;
+            margin-right: 8px;
+        }
+
+        .tagline-left {
+            background: #213458;
+            padding: 0.7rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            border: 1px solid #5f79b0;
+            width: fit-content;
+        }
+
+        .photo-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #919fd9, #aa88c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 6px solid #ffffff;
+            margin: 1rem 0;
+            box-shadow: 0 15px 25px -10px #070f20;
+        }
+
+        .photo-large::before {
+            content: "📸 PHOTO";
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 2px 2px 0 #1f2d55;
+            background: rgba(0,0,0,0.2);
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            backdrop-filter: blur(3px);
+        }
+
+        .left-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #1b2b4b;
+            padding: 0.7rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid #50659b;
+        }
+
+        .stat-item i {
+            font-size: 1.3rem;
+            color: #fcdcaa;
+        }
+
+        /* RIGHT PANEL — main content */
+        .panel-right {
+            background: #ffffff;
+            padding: 2.5rem 2.5rem;
+        }
+
+        /* section headings different */
+        .section-head-diff {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: #0b1c3d;
+            margin: 1.8rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 3px dotted #9bb0e6;
+            padding-bottom: 0.3rem;
+        }
+
+        .section-head-diff i {
+            background: #e7edff;
+            padding: 0.4rem;
+            border-radius: 12px;
+            color: #1d3986;
+        }
+
+        /* about text */
+        .bio-diff p {
+            font-size: 1.2rem;
+            color: #212f4f;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .bio-diff strong {
+            background: #e2eaff;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            color: #12337a;
+        }
+
+        .learning-diff {
+            background: #ebf0fe;
+            border-radius: 3rem;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border: 1px solid #b2c3f0;
+        }
+
+        .learning-diff i {
+            font-size: 2rem;
+            color: #273e77;
+        }
+
+        .learning-diff span {
+            background: #ffffff;
+            padding: 0.4rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid #7d95d9;
+            font-weight: 500;
+        }
+
+        /* skills — compact chips */
+        .skills-diff {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .skill-diff-item {
+            background: #edf3ff;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #102445;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #b9ccfd;
+        }
+
+        .skill-diff-item i {
+            font-size: 1.5rem;
+            color: #2b468b;
+        }
+
+        /* project cards - horizontal minimal */
+        .project-grid-diff {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .project-diff-card {
+            background: #f6f9ff;
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #dbe3fd;
+        }
+
+        .project-emoji-diff {
+            font-size: 3rem;
+            background: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border: 2px solid #adc0f0;
+        }
+
+        .project-diff-card h4 {
+            font-size: 1.5rem;
+            color: #102644;
+        }
+
+        .project-diff-card p {
+            color: #31466f;
+        }
+
+        /* resume & contact row */
+        .resume-contact-diff {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            background: #e3ecfe;
+            border-radius: 2.5rem;
+            padding: 1.8rem 2rem;
+            align-items: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .resume-pdf-diff {
+            background: #1f2f60;
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #aebef0;
+        }
+
+        .contact-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .contact-mini span {
+            background: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #8da2db;
+        }
+
+        /* footer */
+        .footer-diff {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #cad3ed;
+        }
+
+        .madeby-diff {
+            background: #dee7ff;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            color: #10203b;
+        }
+
+        .social-diff a {
+            color: #1f3360;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            background: #e7edff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .demo-diff {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .demo-diff a {
+            background: #11213e;
+            color: white;
+            padding: 0.8rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #9cb2f0;
+        }
+
+        /* responsive */
+        @media (max-width: 900px) {
+            .different-portfolio { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="different-portfolio">
+        <!-- LEFT PANEL: photo and quick info (distinct) -->
+        <div class="panel-left">
+            <div>
+                <div class="name-large-left">
+                    <i i> Vishesh<br>Parmar
+                </div>
+                <div class="tagline-left">
+                    <i class="fas fa-feather"></i> beginner developer · learning daily
+                </div>
+            </div>
+
+            <!-- photo space (circular) -->
+            <div class="photo-large"></div>
+
+            <!-- small stats / based in india etc -->
+            <div class="left-stats">
+                <div class="stat-item"><i class="fas fa-map-pin"></i> based in india</div>
+                <div class="stat-item"><i class="fas fa-code"></i> open to collaborations</div>
+                <div class="stat-item"><i class="fas fa-heart"></i> learning JS & CSS</div>
+            </div>
+
+            <!-- quick contact minimal on left -->
+            <div style="margin-top: 1rem; font-size: 0.95rem; color: #b3c3f0;">
+                <i class="fas fa-envelope"></i> v.parmar@dev.me · +91 98765 43210
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: about, skills, projects, etc -->
+        <div class="panel-right">
+            <!-- about section with full bio (beginner developer, learning) -->
+            <section>
+                <div class="section-head-diff"><i class="fas fa-user"></i> about me</div>
+                <div class="bio-diff">
+                    <p><strong>👋 Hi, I'm Vishesh Parmar</strong> — a <strong>beginner developer</strong> passionate about starting my journey in web development. I'm exploring how to turn ideas into simple, functional websites.</p>
+                    <p>🌱 I recently started learning to code and I'm focused on building strong foundations. I enjoy the problem-solving process and the creativity that comes with development.</p>
+                    
+                    <!-- current learning highlight -->
+                    <div class="learning-diff">
+                        <i class="fas fa-book-open"></i>
+                        <span>📘 currently learning: <strong>JavaScript</strong> & <strong>CSS</strong></span>
+                    </div>
+
+                    <p style="margin-top: 1.2rem;">📍 based in india · excited to collaborate on small projects</p>
+                </div>
+            </section>
+
+            <!-- skills: exactly html, css, js, java, vs code -->
+            <section>
+                <div class="section-head-diff"><i class="fas fa-code"></i> skills</div>
+                <div class="skills-diff">
+                    <span class="skill-diff-item"><i class="fab fa-html5"></i> HTML</span>
+                    <span class="skill-diff-item"><i class="fab fa-css3-alt"></i> CSS</span>
+                    <span class="skill-diff-item"><i class="fab fa-js"></i> JS</span>
+                    <span class="skill-diff-item"><i class="fab fa-java"></i> Java</span>
+                    <span class="skill-diff-item"><i class="fas fa-code"></i> VS Code</span>
+                </div>
+            </section>
+
+            <!-- projects: calculator, bmi calculator, tic tac toe, more soon -->
+            <section>
+                <div class="section-head-diff"><i class="fas fa-project-diagram"></i> projects</div>
+                <div class="project-grid-diff">
+                    <div class="project-diff-card">
+                        <div class="project-emoji-diff">🧮</div>
+                        <h4>Calculator</h4>
+                        <p>Basic arithmetic operations with clean UI.</p>
+                    </div>
+                    <div class="project-diff-card">
+                        <div class="project-emoji-diff">⚖️</div>
+                        <h4>BMI Calculator</h4>
+                        <p>Body mass index tool (metric).</p>
+                    </div>
+                    <div class="project-diff-card">
+                        <div class="project-emoji-diff">❌⭕</div>
+                        <h4>Tic Tac Toe</h4>
+                        <p>Classic two-player game.</p>
+                    </div>
+                    <div class="project-diff-card">
+                        <div class="project-emoji-diff">📁</div>
+                        <h4>more soon</h4>
+                        <p>Always building something new.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- resume + contact -->
+            <section>
+                <div class="section-head-diff"><i class="fas fa-paperclip"></i> resume & contact</div>
+                <div class="resume-contact-diff">
+                    <a href="#" class="resume-pdf-diff" onclick="alert('📄 Resume.pdf demo'); return false;"><i class="fas fa-file-pdf"></i> Vishesh_Parmar_resume.pdf</a>
+                    <div class="contact-mini">
+                        <span><i class="fas fa-envelope"></i> v.parmar@dev.me</span>
+                        <span><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
+                        <span><i class="fab fa-github"></i> /vishparmar</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- footer with made by credit -->
+            <footer class="footer-diff">
+                <div class="madeby-diff">
+                    <i class="fas fa-code"></i> made by Vishesh using HTML, CSS, JS
+                </div>
+                <div class="social-diff">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </footer>
+
+            <!-- DEMO CLICK HERE (exact) -->
+            <div class="demo-diff">
+                <a href="#"><span>✨ FOR DEMO CLICK HERE </span><i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
